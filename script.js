@@ -47,6 +47,7 @@ function init() {
 }
 
 let currentQuestion = 0;
+let idOfRightAnswer = `answer_${questions[currentQuestion]["right_answer"]}`
 
 function showQuestion() {
     let question = questions[currentQuestion];
@@ -59,12 +60,16 @@ function showQuestion() {
 
 function answer(selection) {
     let question = questions[currentQuestion];
+    console.log("selected answer is: ", selection);
     let selectedQuestionNumber = selection.slice(-1);
+    console.log("selectedQuestionNumber is: ", selectedQuestionNumber);
+    console.log("Right  answer is: ", question["right_answer"]);
 
     if(selectedQuestionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add('bg-success'); // mit .ParentNode wird auf das übergeordnete Element zugegriffen
     }
     else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
+        document.getElementById(idOfRightAnswer).parentNode.classList.add("bg-success");
     }
 }
