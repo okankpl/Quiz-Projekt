@@ -50,12 +50,12 @@ function init() {
 
 function showQuestion() {
     let question = questions[currentQuestion];
-
     document.getElementById("currentQuestion").innerHTML = question["question"];
     document.getElementById("answer_1").innerHTML = question["answer_1"];
     document.getElementById("answer_2").innerHTML = question["answer_2"];
     document.getElementById("answer_3").innerHTML = question["answer_3"];
     document.getElementById("answer_4").innerHTML = question["answer_4"];
+    document.getElementById("actualQuestion").innerHTML = currentQuestion + 1;
 }
 
 function answer(selection) {
@@ -74,6 +74,7 @@ function answer(selection) {
 }
 
 function nextQuestion() {
+    document.getElementById("nextBtn").disabled = true;
     document.getElementById("answer_1").parentNode.classList.remove('bg-success', 'bg-danger');
     document.getElementById("answer_2").parentNode.classList.remove('bg-success', 'bg-danger');
     document.getElementById("answer_3").parentNode.classList.remove('bg-success', 'bg-danger');
