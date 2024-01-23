@@ -30,10 +30,19 @@
     </nav>
     <div class="container">
     <div class="card quiz-card">
-      <img src="img/img.jpg" class="card-img-top" alt="..." />
+      <div id="questionImg">
+        <img src="img/img.jpg" class="card-img-top" alt="..." />
+      </div>
+      
 
       <div class="card-body" id="endScreen" style="display: none;">
-        Quiz beendet
+        <div class="containerEndScreen">
+          <img src="img/trophy.png" class="end-screen-img">
+          <h2 class="text-center">COMPLETE<br>HTML QUIZ</h2>
+          <h2 class="text-center">YOUR SCORE: <b id="correctAnswers"></b> / <b id="allAnswers"></b> </h2>
+        </div>
+        
+
       </div>
 
       <div class="card-body" id="questionBody">

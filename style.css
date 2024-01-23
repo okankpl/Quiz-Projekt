@@ -39,3 +39,22 @@ body {
 .bg-success {
     color: white !important;
 }
+
+.end-screen-img {
+    width: 50%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.containerEndScreen {
+    width: 450px;
+    height: 550px;
+    border-radius: 100%;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

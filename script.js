@@ -42,7 +42,7 @@ let questions = [
 ];
 
 let currentQuestion = 0;
-let correctAnswers;
+let correctAnswers = 0;
 
 function init() {
     document.getElementById('allQuestions').innerHTML = questions.length;
@@ -54,6 +54,9 @@ function showQuestion() {
     if(currentQuestion >= questions.length) {
         document.getElementById("endScreen").style = ``;
         document.getElementById("questionBody").style = 'display : none';
+        document.getElementById("questionImg").style = 'display: none';
+        document.getElementById("correctAnswers").innerHTML = correctAnswers;
+        document.getElementById("allAnswers").innerHTML = questions.length;
     }
     else {
         let question = questions[currentQuestion];
