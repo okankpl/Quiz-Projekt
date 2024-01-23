@@ -42,6 +42,7 @@ let questions = [
 ];
 
 let currentQuestion = 0;
+let correctAnswers;
 
 function init() {
     document.getElementById('allQuestions').innerHTML = questions.length;
@@ -49,13 +50,21 @@ function init() {
 }
 
 function showQuestion() {
-    let question = questions[currentQuestion];
+
+    if(currentQuestion >= questions.length) {
+        document.getElementById("endScreen").style = ``;
+        document.getElementById("questionBody").style = 'display : none';
+    }
+    else {
+        let question = questions[currentQuestion];
     document.getElementById("currentQuestion").innerHTML = question["question"];
     document.getElementById("answer_1").innerHTML = question["answer_1"];
     document.getElementById("answer_2").innerHTML = question["answer_2"];
     document.getElementById("answer_3").innerHTML = question["answer_3"];
     document.getElementById("answer_4").innerHTML = question["answer_4"];
     document.getElementById("actualQuestion").innerHTML = currentQuestion + 1;
+    }
+    
 }
 
 function answer(selection) {
@@ -65,6 +74,7 @@ function answer(selection) {
 
     if(selectedQuestionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add('bg-success'); // mit .ParentNode wird auf das übergeordnete Element zugegriffen
+        correctAnswers ++;
     }
     else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
