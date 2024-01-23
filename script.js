@@ -9,18 +9,18 @@ let questions = [
     },
     {
         "question" : "Welches Tag wird verwendet, um einen Absatz in HTML zu erstellen?",
-        "answer_1" : "<p>",
-        "answer_2" : "<paragraph>",
-        "answer_3" : "<par>",
-        "answer_4" : "<text>",
+        "answer_1" : "&lt;p&gt",
+        "answer_2" : "&lt;paragraph&gt",
+        "answer_3" : "&lt;par&gt",
+        "answer_4" : "&lt;text&gt",
         "right_answer" : 1
     },
     {
         "question" : "Welches HTML-Element wird verwendet, um eine Liste mit nummerierten Elementen zu erstellen?",
-        "answer_1" : "<ul>",
-        "answer_2" : "<li>",
-        "answer_3" : "<ol>",
-        "answer_4" : "<dl>",
+        "answer_1" : "&lt;ul&gt",
+        "answer_2" : "&lt;li&gt",
+        "answer_3" : "&lt;ol&gt",
+        "answer_4" : "&lt;dl&gt",
         "right_answer" : 3
     },
     {
@@ -33,24 +33,24 @@ let questions = [
     },
     {
         "question" : "Welches Tag wird verwendet, um eine Tabelle in HTML zu erstellen?",
-        "answer_1" : "<table>",
-        "answer_2" : "<tab>",
-        "answer_3" : "<tr>",
-        "answer_4" : "<tb>",
+        "answer_1" : "&lt;table&gt",
+        "answer_2" : "&lt;tab&gt",
+        "answer_3" : "&lt;tr&gt",
+        "answer_4" : "&lt;tb&gt",
         "right_answer" : 1
     }
 ];
 
+let currentQuestion = 0;
+
 function init() {
     document.getElementById('allQuestions').innerHTML = questions.length;
-    let actualQuestion = document.getElementById('actualQuestion');
+    showQuestion();
 }
-
-let currentQuestion = 0;
-let idOfRightAnswer = `answer_${questions[currentQuestion]["right_answer"]}`
 
 function showQuestion() {
     let question = questions[currentQuestion];
+
     document.getElementById("currentQuestion").innerHTML = question["question"];
     document.getElementById("answer_1").innerHTML = question["answer_1"];
     document.getElementById("answer_2").innerHTML = question["answer_2"];
@@ -60,10 +60,8 @@ function showQuestion() {
 
 function answer(selection) {
     let question = questions[currentQuestion];
-    console.log("selected answer is: ", selection);
     let selectedQuestionNumber = selection.slice(-1);
-    console.log("selectedQuestionNumber is: ", selectedQuestionNumber);
-    console.log("Right  answer is: ", question["right_answer"]);
+    let idOfRightAnswer = `answer_${question["right_answer"]}`;
 
     if(selectedQuestionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add('bg-success'); // mit .ParentNode wird auf das übergeordnete Element zugegriffen
@@ -73,4 +71,14 @@ function answer(selection) {
         document.getElementById(idOfRightAnswer).parentNode.classList.add("bg-success");
     }
     document.getElementById("nextBtn").disabled = false;
+}
+
+function nextQuestion() {
+    document.getElementById("answer_1").parentNode.classList.remove('bg-success', 'bg-danger');
+    document.getElementById("answer_2").parentNode.classList.remove('bg-success', 'bg-danger');
+    document.getElementById("answer_3").parentNode.classList.remove('bg-success', 'bg-danger');
+    document.getElementById("answer_4").parentNode.classList.remove('bg-success', 'bg-danger');
+
+    currentQuestion++;
+    showQuestion();
 }
