@@ -47,6 +47,8 @@ let questions = [
 
 let currentQuestion = 0;
 let correctAnswers = 0;
+let audioSuccess = new Audio('audio/right.mp3');
+let audioFail = new Audio('audio/wrong.mp3');
 
 function init() {
   document.getElementById("allQuestions").innerHTML = questions.length;
@@ -55,18 +57,32 @@ function init() {
 
 function showQuestion() {
   if (currentQuestion >= questions.length) {
+   showEndScreen();
+  } else {
+    showNextQuestion();
+    updateProgressBar();
+  }
+}
+
+function gameIsOver() {
+    return currentQuestion >= questions.length;
+}
+
+function showEndScreen() {
     document.getElementById("endScreen").style = ``;
     document.getElementById("questionBody").style = "display : none";
     document.getElementById("questionImg").style = "display: none";
     document.getElementById("correctAnswers").innerHTML = correctAnswers;
     document.getElementById("allAnswers").innerHTML = questions.length;
-  } else {
+}
+
+function updateProgressBar() {
     let percent = ((currentQuestion + 1) / questions.length) * 100;
     percent = Math.round(percent);
-
     document.getElementById("progressBar").innerHTML = `${percent} %`;
     document.getElementById("progressBar").style = `width: ${percent}%`;
-
+}
+function showNextQuestion() {
     let question = questions[currentQuestion];
     document.getElementById("currentQuestion").innerHTML = question["question"];
     document.getElementById("answer_1").innerHTML = question["answer_1"];
@@ -74,9 +90,7 @@ function showQuestion() {
     document.getElementById("answer_3").innerHTML = question["answer_3"];
     document.getElementById("answer_4").innerHTML = question["answer_4"];
     document.getElementById("actualQuestion").innerHTML = currentQuestion + 1;
-  }
 }
-
 function answer(selection) {
   let question = questions[currentQuestion];
   let selectedQuestionNumber = selection.slice(-1);
@@ -85,7 +99,9 @@ function answer(selection) {
   if (selectedQuestionNumber == question["right_answer"]) {
     document.getElementById(selection).parentNode.classList.add("bg-success"); // mit .ParentNode wird auf das übergeordnete Element zugegriffen
     correctAnswers++;
+    audioSuccess.play();
   } else {
+    audioFail.play();
     document.getElementById(selection).parentNode.classList.add("bg-danger");
     document
       .getElementById(idOfRightAnswer)
