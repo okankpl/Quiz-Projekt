@@ -29,57 +29,52 @@
       </div>
     </nav>
     <div class="container">
-    <div class="card quiz-card">
-      <div id="questionImg">
-        <img src="img/img.jpg" class="card-img-top" alt="..." />
-      </div>
-      
-
-      <div class="card-body" id="endScreen" style="display: none;">
-        <div class="containerEndScreen">
-          <img src="img/trophy.png" class="end-screen-img">
-          <h2 class="text-center margin"><b>COMPLETE<br>HTML QUIZ</h2></b>
-          <h2 class="text-center"><b class="colorBlue">YOUR SCORE</b>
-             <b id="correctAnswers"></b> / <b id="allAnswers"></b> 
-          </h2>
-          <button class="btn btn-warning" id="replayBtn" onclick="replay()">REPLAY</button>
+      <div class="card quiz-card">
+        <div id="questionImg">
+          <img src="img/img.jpg" class="card-img-top" alt="..." />
         </div>
-        
-
-      </div>
-
-      <div class="card-body" id="questionBody">
-        <h5 class="card-title" id="currentQuestion">Frage</h5>
-        
-        <div class="card mb-2 answer-card" onclick="answer('answer_1')">
-          <div class="card-body" id="answer_1">
-            Antwort
+        <div class="card-body" id="endScreen" style="display: none">
+          <div class="containerEndScreen">
+            <img src="img/trophy.png" class="end-screen-img" />
+            <h2 class="text-center margin"><b>COMPLETE</b><br /><b>HTML QUIZ</b></h2>
+            <h2 class="text-center">
+              <b class="colorBlue">YOUR SCORE</b> <b id="correctAnswers"></b> /
+              <b id="allAnswers"></b>
+            </h2>
+            <button class="btn btn-warning" id="replayBtn" onclick="replay()">
+              REPLAY
+            </button>
           </div>
         </div>
-
-        <div class="card mb-2 answer-card" onclick="answer('answer_2')">
-          <div class="card-body" id="answer_2">
-            Antwort
+        <div class="card-body" id="questionBody">
+          <h5 class="card-title" id="currentQuestion">Frage</h5>
+          <div class="card mb-2 answer-card" onclick="answer('answer_1')">
+            <div class="card-body" id="answer_1">Antwort</div>
+          </div>
+          <div class="card mb-2 answer-card" onclick="answer('answer_2')">
+            <div class="card-body" id="answer_2">Antwort</div>
+          </div>
+          <div class="card mb-2 answer-card" onclick="answer('answer_3')">
+            <div class="card-body" id="answer_3">Antwort</div>
+          </div>
+          <div class="card mb-3 answer-card" onclick="answer('answer_4')">
+            <div class="card-body" id="answer_4">Antwort</div>
+          </div>
+          <div class="question-footer">
+            <span
+              ><b id="actualQuestion">1</b> von
+              <b id="allQuestions">5</b> Fragen</span
+            >
+            <button
+              class="btn btn-primary"
+              id="nextBtn"
+              disabled
+              onclick="nextQuestion()"
+            >
+              Nächste Frage
+            </button>
           </div>
         </div>
-
-        <div class="card mb-2 answer-card" onclick="answer('answer_3')">
-          <div class="card-body" id="answer_3">
-            Antwort
-          </div>
-        </div>
-        
-        <div class="card mb-3 answer-card" onclick="answer('answer_4')" >
-          <div class="card-body" id="answer_4">
-            Antwort
-          </div>
-        </div>
-
-        <div class="question-footer">
-          <span><b id="actualQuestion">1</b> von <b id="allQuestions">5</b> Fragen</span>
-          <button class="btn btn-primary" id="nextBtn" disabled onclick="nextQuestion()">Nächste Frage</button>
-        </div>
-        
       </div>
     </div>
   </body>
