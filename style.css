@@ -58,3 +58,19 @@ body {
     justify-content: center;
     flex-direction: column;
 }
+
+#replayBtn {
+    margin-top: 25px;
+    width: 160px;
+    color: white;
+    background-color: orange;
+    font-size: 24px;
+}
+.colorBlue {
+    color: blue;
+    margin-right: 20px;
+}
+.margin {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
