@@ -32,11 +32,22 @@
       <div class="card quiz-card">
         <div id="questionImg">
           <img src="img/img.jpg" class="card-img-top" alt="..." />
+          <div class="progress">
+            <div
+              class="progress-bar"
+              id="progressBar"
+              role="progressbar"
+              style="width: 0%">
+              0%
+            </div>
+          </div>
         </div>
         <div class="card-body" id="endScreen" style="display: none">
           <div class="containerEndScreen">
             <img src="img/trophy.png" class="end-screen-img" />
-            <h2 class="text-center margin"><b>COMPLETE</b><br /><b>HTML QUIZ</b></h2>
+            <h2 class="text-center margin">
+              <b>COMPLETE</b><br /><b>HTML QUIZ</b>
+            </h2>
             <h2 class="text-center">
               <b class="colorBlue">YOUR SCORE</b> <b id="correctAnswers"></b> /
               <b id="allAnswers"></b>
