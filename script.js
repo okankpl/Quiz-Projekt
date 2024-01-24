@@ -61,12 +61,11 @@ function showQuestion() {
     document.getElementById("correctAnswers").innerHTML = correctAnswers;
     document.getElementById("allAnswers").innerHTML = questions.length;
   } else {
-
-    let percent =((currentQuestion + 1)/ questions.length ) * 100;
+    let percent = ((currentQuestion + 1) / questions.length) * 100;
     percent = Math.round(percent);
-    
-    document.getElementById('progressBar').innerHTML = `${percent} %`;
-    document.getElementById('progressBar').style = `width: ${percent}%`;
+
+    document.getElementById("progressBar").innerHTML = `${percent} %`;
+    document.getElementById("progressBar").style = `width: ${percent}%`;
 
     let question = questions[currentQuestion];
     document.getElementById("currentQuestion").innerHTML = question["question"];
@@ -112,4 +111,14 @@ function nextQuestion() {
 
   currentQuestion++;
   showQuestion();
+}
+
+function replay() {
+  currentQuestion = 0;
+  correctAnswers = 0;
+  document.getElementById("");
+  document.getElementById("endScreen").style = `display: none`;
+  document.getElementById("questionBody").style = "";
+  document.getElementById("questionImg").style = "";
+  init();
 }
